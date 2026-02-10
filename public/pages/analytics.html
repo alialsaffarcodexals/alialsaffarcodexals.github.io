@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Analytics • Reboot01</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+  <link rel="icon" type="image/svg+xml" href="../assets/logo.svg" />
+</head>
+<body class="bg">
+  <div class="floating-bubble"></div>
+  <div class="floating-bubble"></div>
+  <div class="floating-bubble"></div>
+  <div class="floating-bubble"></div>
+  <div class="floating-bubble"></div>
+  <div class="floating-bubble"></div>
+  <div class="floating-particle"></div>
+  <div class="floating-particle"></div>
+  <div class="floating-particle"></div>
+  <div class="floating-particle"></div>
+
+  <header class="topbar">
+    <div class="container row between">
+      <div class="brand brand--compact">
+        <div class="logo" aria-hidden="true">
+          <img src="../assets/logo.svg" alt="Reboot01 Dashboard" width="40" height="40" />
+        </div>
+        <div class="titleblock">
+          <h1>Reboot01 Dashboard</h1>
+          <p class="muted">Analytics</p>
+        </div>
+      </div>
+      <button
+        id="topbarMenuToggle"
+        class="topbar-menu-toggle"
+        type="button"
+        aria-label="Toggle navigation menu"
+        aria-controls="topbarMenu"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div id="topbarMenu" class="row gap topbar-menu">
+        <nav class="row gap">
+          <a class="btn ghost" href="profile.html">Profile</a>
+          <a class="btn ghost active" href="analytics.html">Analytics</a>
+          <a class="btn ghost" href="activity.html">Activity</a>
+          <!-- Audits removed -->
+          <a class="btn ghost" href="transactions.html">Transactions</a>
+          <a class="btn ghost" href="projects.html">Projects</a>
+        </nav>
+        <button id="logoutBtn" class="btn ghost">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card" id="section-stats">
+      <div class="row between">
+        <h2><i class="stats-icon">📊</i> Performance Overview</h2>
+        <span class="muted">Core metrics</span>
+      </div>
+      <div class="charts vertical-layout">
+        <div class="chart-card large-chart">
+          <div class="chart-head">
+            <h3>XP Earned by Date</h3>
+            <span class="muted small" id="xpOverTimeRatio">XP per transaction date (not cumulative)</span>
+          </div>
+          <div id="xpChart"></div>
+        </div>
+        <div class="chart-card large-chart">
+          <div class="chart-head">
+            <h3>Audits Done vs Received</h3>
+            <span class="muted small" id="auditsRatio">Audit activity</span>
+          </div>
+          <div id="auditsChart"></div>
+        </div>
+        <div class="chart-card large-chart">
+          <div class="chart-head">
+            <h3>XP by Project <span class="top-projects-label">(Top 10)</span></h3>
+            <span class="muted small" id="xpByProjectRatio">Ranked by XP earned</span>
+          </div>
+          <div id="xpByProjectChart"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="../src/main.js"></script>
+</body>
+</html>

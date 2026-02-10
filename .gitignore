@@ -1,0 +1,4 @@
+.server.pid
+.server.log
+public/.server.pid
+public/.server.log

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GraphQL Profile System</title>
+  <link rel="stylesheet" href="./styles/main.css" />
+  <link rel="icon" type="image/svg+xml" href="./assets/logo.svg" />
+</head>
+<body class="bg">
+  <div class="floating-bubble"></div>
+  <div class="floating-bubble"></div>
+  <div class="floating-bubble"></div>
+  <div class="floating-bubble"></div>
+  <div class="floating-bubble"></div>
+  <div class="floating-bubble"></div>
+  <div class="floating-particle"></div>
+  <div class="floating-particle"></div>
+  <div class="floating-particle"></div>
+  <div class="floating-particle"></div>
+
+  <div id="login-view" class="view">
+    <main class="container auth">
+      <section class="card auth-card" aria-label="Sign in">
+        <header class="auth-card-head">
+          <div class="brand auth-brand">
+            <div class="logo auth-logo" aria-hidden="true">
+              <img src="./assets/logo.svg" alt="Reboot01 Dashboard" width="60" height="60" />
+            </div>
+            <h1 class="auth-title">Reboot01 Dashboard</h1>
+          </div>
+          <p class="muted auth-subtitle">Sign in to view your GraphQL-powered profile.</p>
+
+          <h2 class="auth-h2">Sign in</h2>
+        </header>
+
+        <form id="loginForm" class="auth-form">
+          <div class="input-wrapper">
+            <i>👤</i>
+            <input type="text" id="identifier" name="identifier" placeholder=" " required autocomplete="username" />
+            <label for="identifier" class="floating-label">Username or Email</label>
+            <span class="field-validation" id="identifier-validation"></span>
+          </div>
+
+          <div class="input-wrapper">
+            <i>🔒</i>
+            <input type="password" id="password" name="password" placeholder=" " required autocomplete="current-password" />
+            <label for="password" class="floating-label">Password</label>
+            <button type="button" class="password-toggle" id="togglePassword" aria-label="Toggle password visibility">👁️</button>
+            <span class="field-validation" id="password-validation"></span>
+          </div>
+
+          <p class="muted small auth-note">Your session token is stored in this browser.</p>
+
+          <button type="submit" class="btn full" id="loginSubmit">
+            <span class="btn-text">Sign in</span>
+            <span class="btn-loading">Signing in...</span>
+          </button>
+
+          <p class="helper muted">Tip: If you have issues signing in, try your username instead of email.</p>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

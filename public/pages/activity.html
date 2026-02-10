@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Activity • Reboot01</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+  <link rel="icon" type="image/svg+xml" href="../assets/logo.svg" />
+</head>
+<body class="bg">
+  <div class="floating-bubble"></div>
+  <div class="floating-bubble"></div>
+  <div class="floating-bubble"></div>
+  <div class="floating-bubble"></div>
+  <div class="floating-bubble"></div>
+  <div class="floating-bubble"></div>
+  <div class="floating-particle"></div>
+  <div class="floating-particle"></div>
+  <div class="floating-particle"></div>
+  <div class="floating-particle"></div>
+
+  <header class="topbar">
+    <div class="container row between">
+      <div class="brand brand--compact">
+        <div class="logo" aria-hidden="true">
+          <img src="../assets/logo.svg" alt="Reboot01 Dashboard" width="40" height="40" />
+        </div>
+        <div class="titleblock">
+          <h1>Reboot01 Dashboard</h1>
+          <p class="muted">Recent activity</p>
+        </div>
+      </div>
+      <button
+        id="topbarMenuToggle"
+        class="topbar-menu-toggle"
+        type="button"
+        aria-label="Toggle navigation menu"
+        aria-controls="topbarMenu"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div id="topbarMenu" class="row gap topbar-menu">
+        <nav class="row gap">
+          <a class="btn ghost" href="profile.html">Profile</a>
+          <a class="btn ghost" href="analytics.html">Analytics</a>
+          <a class="btn ghost active" href="activity.html">Activity</a>
+          <!-- Audits removed -->
+          <a class="btn ghost" href="transactions.html">Transactions</a>
+          <a class="btn ghost" href="projects.html">Projects</a>
+        </nav>
+        <button id="logoutBtn" class="btn ghost">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="page-header">
+      <div>
+        <h2>Your Learning Status</h2>
+      </div>
+    </div>
+    <section class="activity-grid" id="section-activity">
+      <article class="card primary" id="section-unified-activity">
+        <div class="card-head">
+          <h2>🧾 Recent Projects</h2>
+          <span class="status-pill status-info">View-only</span>
+        </div>
+        <ul id="unifiedActivityList" class="list"></ul>
+        <div class="list-footer muted" id="unifiedActivityFooter"></div>
+      </article>
+
+      <article class="card" id="section-audits-done">
+        <div class="card-head">
+          <h2><img src="../assets/audit-done.svg" alt="" width="18" height="18" style="vertical-align: -3px; margin-right: 6px;">Recent Audits Done</h2>
+          <span class="status-pill status-pass">Up</span>
+        </div>
+        <ul id="auditsDoneList" class="list"></ul>
+        <div class="list-footer muted" id="auditsDoneFooter"></div>
+      </article>
+
+      <article class="card" id="section-audits-received">
+        <div class="card-head">
+          <h2><img src="../assets/audit-received.svg" alt="" width="18" height="18" style="vertical-align: -3px; margin-right: 6px;">Recent Audits Received</h2>
+          <span class="status-pill status-fail">Down</span>
+        </div>
+        <ul id="auditsReceivedList" class="list"></ul>
+        <div class="list-footer muted" id="auditsReceivedFooter"></div>
+      </article>
+    </section>
+  </main>
+
+  <script type="module" src="../src/main.js"></script>
+</body>
+</html>
