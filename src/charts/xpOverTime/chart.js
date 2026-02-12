@@ -1,15 +1,18 @@
+/**
+ * chart.js
+ * Renders the XP-over-time SVG chart with area, line, labels, and animations.
+ */
 import { addAriaToSvg } from '../../utils/a11y.js';
 import { generateGridLines, generateAxisLabels } from '../base/grid.js';
-import { generateAnimatedBubbles } from './bubbles.js';
 
 /**
- * XP line/area chart.
+ * XP line + area chart.
  *
- * Input points are expected as:
- *   [{ x: <timestamp-ms>, y: <xp-amount> }, ...]
+ * points format:
+ * [{ x: timestampMs, y: xpAmount }, ...]
  *
- * Important: this chart is NOT cumulative by default.
- * It visualizes raw XP transaction amounts positioned by date.
+ * This chart is not cumulative.
+ * It shows each transaction amount on timeline.
  */
 export function renderXpChart(container, points) {
   const width = 800;
@@ -57,6 +60,7 @@ export function renderXpChart(container, points) {
   const maxY = Math.max(...validYValues);
   const minY = Math.min(...validYValues);
 
+  // scaleX: Converts an X domain value into chart pixel coordinates.
   const scaleX = (xValue, index) => {
     if (isNumericX) {
       return padding + ((xValue - minX) / (maxX - minX || 1)) * (width - padding * 2);
@@ -64,6 +68,7 @@ export function renderXpChart(container, points) {
     return padding + (index / (points.length - 1 || 1)) * (width - padding * 2);
   };
 
+  // scaleY: Converts a Y domain value into chart pixel coordinates.
   const scaleY = (yValue) => {
     const range = maxY - minY || 1;
     return height - padding - ((yValue - minY) / range) * (height - padding * 2);
@@ -96,21 +101,10 @@ export function renderXpChart(container, points) {
   }
 
   const gridLines = generateGridLines(width, height, padding, minX, maxX, minY, maxY, isNumericX);
-  const bubbles = generateAnimatedBubbles(validPoints, scaleX, scaleY);
   const axisLabels = generateAxisLabels(width, height, padding, minX, maxX, minY, maxY, isNumericX);
 
   const gradients = `
     <defs>
-      <radialGradient id="bubbleGradient" cx="30%" cy="30%">
-        <stop offset="0%" stop-color="rgba(59, 130, 246, 0.9)" />
-        <stop offset="70%" stop-color="rgba(96, 165, 250, 0.6)" />
-        <stop offset="100%" stop-color="rgba(96, 165, 250, 0)" />
-      </radialGradient>
-      <radialGradient id="innerBubbleGradient" cx="30%" cy="30%">
-        <stop offset="0%" stop-color="rgba(147, 197, 253, 0.9)" />
-        <stop offset="70%" stop-color="rgba(191, 219, 254, 0.6)" />
-        <stop offset="100%" stop-color="rgba(224, 231, 255, 0)" />
-      </radialGradient>
       <linearGradient id="areaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
         <stop offset="0%" stop-color="rgba(59, 130, 246, 0.4)" />
         <stop offset="100%" stop-color="rgba(59, 130, 246, 0.05)" />
@@ -134,7 +128,6 @@ export function renderXpChart(container, points) {
     ${areaPath ? `<path d="${areaPath}" fill="url(#areaGradient)" />` : ''}
     ${linePath ? `<path d="${linePath}" fill="none" stroke="rgba(96, 165, 250, 0.4)" stroke-width="2" stroke-dasharray="4,4" />` : ''}
     ${linePath ? `<path d="${linePath}" fill="none" stroke="url(#lineGradient)" stroke-width="3" filter="url(#glow)" />` : ''}
-    ${bubbles}
     ${axisLabels}
   `;
 
