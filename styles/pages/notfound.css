@@ -1,0 +1,157 @@
+/* 404 page (Netlify/local) */
+.page-404 .notfound-wrap {
+  min-height: calc(100vh - 110px);
+  display: grid;
+  place-items: center;
+  padding-top: 8px;
+}
+
+.notfound-card {
+  /* Make it a square card */
+  width: min(560px, 92vw);
+  aspect-ratio: 1 / 1;
+  max-width: 560px;
+
+  /* Center all content within the card */
+  text-align: left; /* keep text alignment consistent */
+  padding: 32px;
+
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.55), 0 0 40px rgba(96,165,250,0.12);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* add a subtle inner highlight so the card doesn't look "muddy" */
+.notfound-card::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  border-radius: 17px;
+  pointer-events: none;
+  background:
+    radial-gradient(900px 260px at 20% 0%, rgba(147,197,253,0.10), transparent 60%),
+    radial-gradient(700px 240px at 90% 10%, rgba(52,211,153,0.08), transparent 55%),
+    radial-gradient(700px 260px at 50% 100%, rgba(248,113,113,0.06), transparent 60%);
+}
+
+.notfound-hero {
+  /* group mark + subtitle */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  width: 100%;
+}
+
+/* Logo + 404 always side-by-side */
+.notfound-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.notfound-badge {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  background: rgba(96,165,250,0.10);
+  border: 1px solid rgba(96,165,250,0.22);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.30);
+  flex: 0 0 auto;
+}
+
+.notfound-badge img { width: 44px; height: 44px; display: block; }
+
+.notfound-text {
+  text-align: center;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.notfound-code {
+  font-size: 64px;
+  line-height: 1;
+  font-weight: 850;
+  letter-spacing: -1px;
+  text-shadow: 0 18px 40px rgba(0,0,0,0.35);
+  background: linear-gradient(to right, #93c5fd, var(--accent-primary), var(--text-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: left;
+}
+
+.notfound-subtitle { margin-top: 6px; }
+
+/* keep the text blocks visually centered */
+.notfound-desc { text-align: center; }
+
+@media (max-width: 520px) {
+  /* keep logo+404 together on smaller screens */
+  .notfound-mark { gap: 12px; }
+  .notfound-code { font-size: 58px; }
+}
+
+.notfound-desc {
+  max-width: 54ch;
+  margin: 0 0 18px;
+}
+
+.notfound-actions {
+  /* Center actions within the card */
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 2px;
+  width: 100%;
+}
+
+/* Make the primary CTA feel more "primary" */
+.page-404 .btn {
+  box-shadow: 0 12px 24px rgba(0,0,0,0.22);
+}
+.page-404 .btn.ghost {
+  box-shadow: none;
+}
+
+.notfound-links {
+  /* More space from the actions */
+  margin-top: 22px;
+  font-size: 12px;
+  opacity: .92;
+  width: 100%;
+  text-align: center;
+}
+
+.notfound-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(199,210,254,0.35);
+}
+
+.notfound-links a:hover { color: #e2e8f0; border-bottom-color: rgba(226,232,240,0.5); }
+
+.notfound-links .dot { margin: 0 8px; opacity: .55; }
+
+@media (max-width: 640px) {
+  /* On small screens, drop the square constraint to avoid overflow */
+  .notfound-card {
+    aspect-ratio: auto;
+    width: min(520px, 92vw);
+  }
+}
+
+@media (max-width: 520px) {
+  .notfound-hero { flex-direction: column; align-items: flex-start; }
+}

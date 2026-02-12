@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Transactions • Reboot01</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.css" />
+  <link rel="icon" type="image/svg+xml" href="../assets/logo.svg" />
+</head>
+<body class="bg">
+  <div class="floating-bubble"></div>
+  <div class="floating-bubble"></div>
+  <div class="floating-bubble"></div>
+  <div class="floating-bubble"></div>
+  <div class="floating-bubble"></div>
+  <div class="floating-bubble"></div>
+  <div class="floating-particle"></div>
+  <div class="floating-particle"></div>
+  <div class="floating-particle"></div>
+  <div class="floating-particle"></div>
+
+  <header class="topbar">
+    <div class="container row between">
+      <div class="brand brand--compact">
+        <div class="logo" aria-hidden="true">
+          <img src="../assets/logo.svg" alt="Reboot01 Dashboard" width="40" height="40" />
+        </div>
+        <div class="titleblock">
+          <h1>Reboot01 Dashboard</h1>
+          <p class="muted">Transactions</p>
+        </div>
+      </div>
+      <button
+        id="topbarMenuToggle"
+        class="topbar-menu-toggle"
+        type="button"
+        aria-label="Toggle navigation menu"
+        aria-controls="topbarMenu"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div id="topbarMenu" class="row gap topbar-menu">
+        <nav class="row gap">
+          <a class="btn ghost" href="profile.html">Profile</a>
+          <a class="btn ghost" href="analytics.html">Analytics</a>
+          <a class="btn ghost" href="activity.html">Activity</a>
+          <!-- Audits removed -->
+          <a class="btn ghost active" href="transactions.html">Transactions</a>
+          <a class="btn ghost" href="projects.html">Projects</a>
+        </nav>
+        <button id="logoutBtn" class="btn ghost">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card" id="section-transactions">
+      <div class="row between tx-header">
+        <h2>⭐ XP Transactions</h2>
+        <div class="filters-grid">
+          <div class="filter-block filter-search">
+            <label class="muted">Search</label>
+            <div class="search-row">
+              <input id="txSearch" class="input search-input" type="search" placeholder="Search by project name..." />
+              <button id="txClear" class="btn ghost small" type="button">Clear Search</button>
+              <button id="txReset" class="btn ghost small" type="button">Reset Filters</button>
+            </div>
+          </div>
+
+          <div class="filters-group">
+            <label class="muted filters-title">Filters</label>
+            <div class="filters-row">
+              <div class="filter-block filter-xp">
+                <label class="muted filter-label">XP Range (kB): <span id="xpRangeLabel">—</span></label>
+                <div id="xpRange"></div>
+              </div>
+              <div class="filter-block filter-date">
+                <label class="muted filter-label">Date Range: <span id="dateRangeLabel">—</span></label>
+                <div id="dateRange"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <label class="muted" style="padding: 0px;">List of Transactions</label>
+      <div class="table-wrap">
+        <table class="table" id="transactionsTable">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Project</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody id="transactionsBody"></tbody>
+        </table>
+      </div>
+      <div class="row between">
+        <span class="muted" id="txCount"></span>
+        <button class="btn ghost" id="txLoadMore">Load more</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.js"></script>
+  <script type="module" src="../src/main.js"></script>
+</body>
+</html>

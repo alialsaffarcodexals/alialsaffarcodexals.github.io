@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects • Reboot01</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+  <link rel="icon" type="image/svg+xml" href="../assets/logo.svg" />
+</head>
+<body class="bg">
+  <div class="floating-bubble"></div>
+  <div class="floating-bubble"></div>
+  <div class="floating-bubble"></div>
+  <div class="floating-bubble"></div>
+  <div class="floating-bubble"></div>
+  <div class="floating-bubble"></div>
+  <div class="floating-particle"></div>
+  <div class="floating-particle"></div>
+  <div class="floating-particle"></div>
+  <div class="floating-particle"></div>
+
+  <header class="topbar">
+    <div class="container row between">
+      <div class="brand brand--compact">
+        <div class="logo" aria-hidden="true">
+          <img src="../assets/logo.svg" alt="Reboot01 Dashboard" width="40" height="40" />
+        </div>
+        <div class="titleblock">
+          <h1>Reboot01 Dashboard</h1>
+          <p class="muted">Projects</p>
+        </div>
+      </div>
+      <button
+        id="topbarMenuToggle"
+        class="topbar-menu-toggle"
+        type="button"
+        aria-label="Toggle navigation menu"
+        aria-controls="topbarMenu"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div id="topbarMenu" class="row gap topbar-menu">
+        <nav class="row gap">
+          <a class="btn ghost" href="profile.html">Profile</a>
+          <a class="btn ghost" href="analytics.html">Analytics</a>
+          <a class="btn ghost" href="activity.html">Activity</a>
+          <!-- Audits removed -->
+          <a class="btn ghost" href="transactions.html">Transactions</a>
+          <a class="btn ghost active" href="projects.html">Projects</a>
+        </nav>
+        <button id="logoutBtn" class="btn ghost">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card" id="section-projects">
+      <div class="row between">
+        <h2>📁 Project Details</h2>
+        <div class="row gap">
+          <select id="projType" class="input" aria-label="Filter by type">
+            <option value="">All types</option>
+            <option value="exam">Exam</option>
+            <option value="project">Project</option>
+            <option value="exercise">Exercise</option>
+          </select>
+          <select id="projResult" class="input" aria-label="Filter by result">
+            <option value="">All results</option>
+            <option value="passed">Passed</option>
+            <option value="failed">Failed</option>
+          </select>
+          <input id="projSearch" class="input" type="search" placeholder="Search project..." />
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table class="table" id="projectsTable">
+          <thead>
+            <tr>
+              <th>Project</th>
+              <th>Type</th>
+              <th>Object ID</th>
+              <th>Result</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody id="projectsBody"></tbody>
+        </table>
+      </div>
+      <div class="row between" >
+        <span class="muted" id="projCount"></span>
+        <button class="btn ghost" id="projLoadMore" style="margin-top: 16px;">Load more</button>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="../src/main.js"></script>
+</body>
+</html>
